@@ -13,7 +13,7 @@ var pad = function (val, len) {
     val = new String(val);
     len = parseInt(len) || 2;
     while(val.length < len) {
-       val = "0" + val;
+        val = "0" + val;
     }
     return val;
 };
