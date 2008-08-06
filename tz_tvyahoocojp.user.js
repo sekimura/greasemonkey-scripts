@@ -4,6 +4,7 @@
 // @include        http://tv.yahoo.co.jp/vhf/*
 // @include        http://tv.yahoo.co.jp/bs_digital/*
 // @include        http://tv.yahoo.co.jp/radio/*
+// @include        http://tv.yahoo.co.jp/listings/*
 // ==/UserScript==
 
 (function() {
@@ -18,7 +19,7 @@ var pad = function (val, len) {
     return val;
 };
 
-var xpathExp = "/html[1]/body[1]/center[1]/table/tbody[1]/tr/td/table[1]/tbody[1]/tr[1]/td[2]/small[1]/b[1]";
+var xpathExp = 'id("contents")/div[@class="internalBlock"]/div[@class="tvProgram clearFix"]/form[1]/table[1]/tbody[1]/tr[1]/td[1]/table[@class="channel7"]/tbody[1]/tr/td/span[@class="detail"]/span[@class="time"]';
 var xpathResult = document.evaluate(xpathExp, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
 for (var i = 0; i < xpathResult.snapshotLength; i++) {
     var el = xpathResult.snapshotItem(i);
