@@ -19,12 +19,12 @@ var pad = function (val, len) {
     return val;
 };
 
-var xpathExp = 'id("contents")/div[@class="internalBlock"]/div[@class="tvProgram clearFix"]/form[1]/table[1]/tbody[1]/tr[1]/td[1]/table[@class="channel7"]/tbody[1]/tr/td/span[@class="detail"]/span[@class="time"]';
+var xpathExp = 'id("contents")/div[@class="internalBlock"]/div[@class="tvProgram clearFix"]/form[1]/table[1]/tbody[1]/tr[1]/td[1]/table/tbody[1]/tr/td/span[@class="detail"]/span[@class="time"]';
 var xpathResult = document.evaluate(xpathExp, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
 for (var i = 0; i < xpathResult.snapshotLength; i++) {
     var el = xpathResult.snapshotItem(i);
-    var re = /(\d+):(\d+)/;
-    var result = re.exec(el.textContent);
+    var hhmm = el.textContent.split(String.fromCharCode("8203")).join('');
+    var result = hhmm.match(/([0-9]+):([0-9]+)/);
     if (result[1]) {
         var d = new Date();
         d.setHours(result[1] - tzDiff);
