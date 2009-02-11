@@ -21,6 +21,9 @@ function charToImgTag(whole, p1) {
     if (0xE301 <= charCode && charCode <= 0xE34D) {
         baseDir = 'E301';
     }
+    if (0xE401 <= charCode && charCode <= 0xE44C) {
+        baseDir = 'E401';
+    }
     if (0xE501 <= charCode && charCode <= 0xE537) {
         baseDir = 'E501';
     }
